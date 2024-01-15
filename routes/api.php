@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// --- Public Endpoints ---
+Route::get('/', App\Http\Controllers\Api\HomeController::class);
+
+Route::resource('/widgets', App\Http\Controllers\Api\WidgetController::class, [
+    'only' => ['index', 'show', 'store', 'update', 'destroy']
+]);
+
+// --- Restricted Endpoints ---
+Route::group(['middleware' => 'auth:sanctum'], function() {
+
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
 });
