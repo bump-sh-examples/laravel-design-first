@@ -5,13 +5,25 @@ parameters:
     required: true
     schema:
       type: string
+
 get:
-  summary: show widget
+  summary: Get widget
+  operationId: get-widget
   responses:
     '200':
-      description: successful
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schema/widget.yaml"
+
 put:
-  summary: update widget
+  summary: Update widget
+  operationId: update-widget
   responses:
     '200':
-      description: successful
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schema/widget.yaml"
