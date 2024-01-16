@@ -1,0 +1,18 @@
+openapi: 3.0.3
+info:
+  title: Widget API
+  description: >
+    This is a sample server for a widget API, built with Rails and the
+    Committee gem for working with OpenAPI.
+  version: 1.0.0
+servers:
+  - description: Production
+    url: https://example.com/
+  - description: Development
+    url: http://localhost/
+    x-internal: true
+paths:
+  /api/widgets:
+    $ref: "./paths/widgets.yaml"
+  /api/widgets/{id}:
+    $ref: "./paths/widgets_id.yaml"
