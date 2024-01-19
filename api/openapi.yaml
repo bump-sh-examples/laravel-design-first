@@ -14,5 +14,5 @@ servers:
 paths:
   /api/widgets:
     $ref: "./paths/widgets.yaml"
-  /api/widgets/{id}:
+  /api/widgets/{widget}:
     $ref: "./paths/widgets_id.yaml"

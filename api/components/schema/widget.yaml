@@ -26,6 +26,7 @@ properties:
     type: string
     format: date-time
     readOnly: true
+additionalProperties: false
 required:
   - name
   - description

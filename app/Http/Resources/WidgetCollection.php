@@ -18,7 +18,7 @@ class WidgetCollection extends ResourceCollection
             'data' => $this->collection->map(function ($widget) {
                 return [
                     'id' => $widget->id,
-                    'name' => $widget->name,
+                    'name1' => $widget->name,
                     'description' => $widget->description,
                     'created_at' => $widget->created_at,
                     'updated_at' => $widget->updated_at,

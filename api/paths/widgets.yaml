@@ -17,9 +17,12 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: "../components/schema/widget.yaml"
+            allOf:
+              - $ref: "../components/schema/wrapper.yaml"
+              - properties:
+                  data:
+                    items:
+                      $ref: "../components/schema/widget.yaml"
 
     '429':
       description: too many requests
@@ -36,6 +39,7 @@ get:
           schema:
             type: integer
           description: The number of seconds left in the current period
+
 post:
   summary: Create Widget
   operationId: create-widget
@@ -49,6 +53,15 @@ post:
   responses:
     '201':
       description: Created
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../components/schema/wrapper.yaml"
+              - properties:
+                  data:
+                    $ref: "../components/schema/widget.yaml"
+
     '400':
       description: Bad Request
       content:
@@ -56,14 +69,13 @@ post:
           schema:
             type: object
             properties:
+              title:
+                type: string
+              detail:
+                type: string
+              code:
+                type: string
               errors:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    title:
-                      type: string
-                    detail:
-                      type: string
-                    code:
-                      type: string
+                type: object
+                additionalProperties:
+                  type: string

@@ -1,5 +1,5 @@
 parameters:
-  - name: id
+  - name: widget
     in: path
     description: The unique identifier of a widget.
     required: true
@@ -15,7 +15,23 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../components/schema/widget.yaml"
+            allOf:
+              - $ref: "../components/schema/wrapper.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../components/schema/widget.yaml"
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              detail:
+                type: string
 
 put:
   summary: Update widget
@@ -26,4 +42,9 @@ put:
       content:
         application/json:
           schema:
-            $ref: "../components/schema/widget.yaml"
+            additionalProperties: false
+            allOf:
+              - $ref: "../components/schema/wrapper.yaml"
+              - properties:
+                  data:
+                    $ref: "../components/schema/widget.yaml"

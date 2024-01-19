@@ -1,0 +1,22 @@
+type: object
+description: >-
+  All responses from the API are wrapped in this object. This allows us to
+  list arrays with metadata too, for things like links and pagination data.
+properties:
+  data:
+    oneOf:
+      - type: array
+      - type: object
+    description: >-
+      The response data. This can be an array or an object, depending on the
+      endpoint.
+    readOnly: true
+  links:
+    type: object
+    description: >-
+      Links related to the response. This is useful for pagination, for
+      example.
+    readOnly: true
+additionalProperties: false
+required:
+  - data
