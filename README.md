@@ -35,3 +35,8 @@ Give it a try, play around with the OpenAPI, and see how it responds to differen
 Then you can run `composer test` to see if the API responses match what OpenAPI expect, which when implemented in your application will help make sure your API is actually doing what your docs are saying, or make sure your docs are saying what your API is doing, whichever way round you prefer to think of it.
 
 Preview how the API reference docs look [on Bump.sh](https://bump.sh/bump-examples/hub/code-samples/doc/laravel-design-first).
+
+## License
+
+The contents of this repository are licensed under [CC BY-NC-SA
+  4.0](./LICENSE_CC-BY-NC-SA-4.0).
